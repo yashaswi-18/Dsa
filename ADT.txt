@@ -1,0 +1,423 @@
+Data structure :
+
+A data structure is a storage that is used to stack and organize data.It is a way to arranging data on a computer so that it can be accessed and update eficiently .
+
+Types of data structure :
+
+1.Linear vs non linear
+
+2.Static vs Dynamic 
+Static 	                                                                Dynamic
+1.	Memory allocated on compile time 	                1.memory allocated on runtime
+2.	fixed : once allocated can not be changed
+ 	                                                        2.on demand : can increase or decrease as per need 
+3.	memory allocated on predict 	                        3.memory allocated on demand only
+
+4.	 Not memory efficient
+ 	                                                        4.memory efficient as per need 
+5.	Easy to allocate : int a =10 ; //4 byte in java
+ 	                                                        5.many languages needs special commands to give c++ :new / delete
+	
+
+
+
+
+ADT:
+
+1 . create(size) - creates array/stack of n size , init tos -1 
+
+2 . push(e) : enter element on stack by tos + 1 
+
+3 . pop() : removed element from stack[tos] , tos - 1
+
+4 . isFull : T/F returns true if full else false
+
+5 . isEmpty : T/F returns true if empty else false
+
+6 . peek() : e return element at tos 
+
+7 . printStack() : prints in LIFO manners from tos to 0 
+
+
+Applications :
+
+1.Recursion
+
+int fact(int no)
+{
+if(no == 1)
+ return 1;
+else
+return no*fact(no-1);
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.Wellness or Balance of { [ ( ) ] }
+ // .length is property in array
+	   // .length() is method in String
+-check wellnesss or balance - equal number of opening and closing brackets
+
+cases / conditions :
+1.completely balance
+2.expected - one bracket '}' is remaining 
+3.unexpected - one bracket '}' is extra
+
+
+output
+
+{ { {  } } -> string inputs
+
+-use stack ->push
+           ->pop
+
+1.balance
+
+2.expected
+
+3.unexpected
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+3.Decimal to Binary conversion
+
+- take remainder and put on stack
+- at end remove data from stack and accept it as answer
+
+1 2 4 8 16 32 64 
+
+(12) binary = 1100
+
+eg 1%2 = 1
+
+- assignment
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+4. Reversing a String 
+
+" java "
+  
+- char by char 
+
+- push(e) and then pop 
+
+a    
+v   av
+a   ava
+j   avaj
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+5.Expression and Evaluation Conversion
+
+    1. Infix ( operator in between two operands) a+b eg for human
+    2. Prefix  +ab  --> this is for software  -->add(a,b) 
+    3. Postfix  ab + -->this is for hardware  -->load a , load b , add a,b eg physically handle calculator 
+
+
+BODMAS RULE 
+
+1.always go left to right
+2.first solve higher then lower ( ^ highest ; * , / , % higher ; + , - lower )
+3.in case of brackets start from inner most
+
+
+eg a+b-c
+    
+postfix -> ab+c-
+Prefix -> -+abc 
+
+eg a + b * c / d + e
+     3   1   2   4
+
+postfix -> a + bc * / d+e -> a+bc*d/+e -> abc*d/++e -> abc*d/+e+
+
+prefix -> a+/*bcd +e -> +a/*bcd+e -> ++a/*bcde
+
+
+eg a+b*c-d*e
+
+postfix -> a+bc*-de* -> abc*+de*-
+
+prefix -> *+abc*-de
+  
+
+eg (a+b) * (c -d)
+
+prefix : *+ab-cd
+ postfix : ab+cd-*  
+
+
+@ using stack palindrome , decimal to binary      
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Infix to Postfix 
+
+1.go left to right
+2.if operand copy to postfix
+3.if {[( push on stack
+4.if }]) pop all till ([{ and copy poped to postfix
+5.if operator push iff precedence(new) > precedence(tos_operator)
+else pop till condition statisfies of stack becomes empty
+
+
+
+Infix to Prefix 
+
+1.go right to left (end to start)
+2.if operand copy to prefix
+3.if }]) push on stack
+4.if {[( pop all till }]) and copy poped to prefix
+5.if operator push iff precedence(new) >= precendence(tos_operator)
+else pop till condition statisfies or stack becomes empty
+6.reverse and print prefix
+
+
+a+b*c
+
+c b * a +	
+
+prefix = +a*bc
+
+
+*   +
+
+
+similar like --> shallow deep shallow concept read
+
+String s1 ="java" , s2="java";
+s1.CompareTo(s2)  -> check the content
+s1==s2  --> check the reference  , create a shallow copy 
+
+
+5 + 3 = 5 , 3 , + = 5 3 +
+
+
+Evaluation of postfix expression 
+
+ 2 3 1 * 9 -
+
+100 , 200
+
+
+Evaluation of prefix expression 
+
+
+
+
+Min Stack
+
+minStack.pop()  -> 
+
+
+maxStack 
+
+-when push check peek of maxstack if element > maxStack[tos]
+
+
+2 push -> stack
+       -> maxStack
+
+pop -> if stack[tos] = maxStack[tos]
+
+2 pop ->stack
+      ->maxStack
+
+
+
+Q.One single array using 2 stack
+2stack  - 1 array
+
+
+-----------------------------------------------------------------------------------------------------------------
+
+
+Queue
+
+
+-FIFO First in First out
+1.Enqueue - entry on queue  ->rare+1
+
+-queue is doulble ended 1.rare 2.front
+-nature is FIFO
+-it is linear and most static 
+eg.line 
+-as per mcq
+-queue empty condition is front>rear - front is ahead with rare
+
+-what is not empty condition - front<rear
+
+drawback - one time used 
+
+Types of queue
+1.Linear queue
+2.Circular queue
+3.Priority queue
+
+
+--------------------------------------------------------------------------------------------------------------------
+Q.
+- Linear Queue spaces can be used only once 
+- One can not reclaim spaces that got free due to dequeue
+
+solution :-Circular queue eg youtube nuffer and rebufferinh the size
+
+-enqueue/dequeue : count 
+   ->enqueue --> count+1
+   ->dequeue --> count-1
+
+Incrementing formula for
+
+1. rear = (rear + 1) % Maxsize
+
+2. front = (front + 1) % Maxsize
+
+Full if count == Maxsize
+empty if count == 0 
+
+-------------------------------------------------------------------------------------------------------------------
+
+Priority Queue
+
+- NOT LIFO OR FIFO BUT  IN THIS ON EVERY DEQUEUE MAXIMUM/MOST IMPORTANT PRIORITY WORKS COMES OUT 
+
+                   F
+eg. 8  17  80 2 5 10
+                R  
+
+1 . Ascending priority of queue 
+
+dequeue() -  2,5,8,10,17,80
+
+2. Descending priority queue
+-total system
+
+dequeue() - 80,17,10,8,5,2
+
+=====================================================================================================================
+
+Dqueue-Double ended queue
+
+
+====================================================================================================================
+
+  SLIDING WINDOW PROBLEM
+
+- interview questions  find maximum on sliding window or minimum of sliding window based on queue.
+
+Q.Implement sliding window on queue that returns max in window for each slides example output given above
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+LINKED LIST
+
+1.Linear linked list
+  root
+|  |   | -> |  |  |  -> |  |   |
+
+
+2.Circular linked list (use for looping)
+
+  root                    last
+ |--|  |   | -> |  |  |  -> |  |   |-----|
+ |_______________________________________|
+
+
+3.Doubly linked list
+
+
+
+4. Circular doubly linked list 
+
+
+
+- It is linear-dyanamic structure most powerful as can code all 5 types of DS uses node
+
+- def:  Collection of nodes in sequential manner 
+ ____________________
+ |   data  |  next   | node ->node is combination of data and next
+ |_________|_________|
+
+
+class Node
+{
+   int data;
+   Node next;  //self reference ->node referring to another node
+   Node(int data)  //constructor
+   {
+      this.data = data;  ->pointers can refer to its own type
+
+      this.next=null; 
+   }
+}
+
+ ____________________
+ |   10    |  null   | 
+ |_________|_________|
+
+Node n = new Node(10);
+
+-called by  constructor and return the node
+
+
+**Note : ROOT IS 1ST OR LEFT MOST 
+(root will be assigned to 1st)
+- RIGHT MOST HAS NEXT NULL
+- accessed in sequential manner(squential linear dyanamic linked list)
+- 
+
+10  2000  ->  20 3100  -> 30 4800 -> 40 null
+
+
+
+Node t = root;  //t=1200
+T = t.next; //t=2000
+
+Has a -> containership -> linked list follow
+
+Is a -> inheritance 
+
+nullify the root -> assigning it null so we know when to use it
+
+ADT :
+
+List
+
+1. insertLeft(e)
+ ROOT IS 1ST OR LEFT MOST 
+-create a node and check any root will exists
+-check root is null or not , then set it is root
+-connect root to next 
+-then root is on first
+
+
+2. insertRight(e)
+RIGHT MOST HAS NEXT NULL
+- simply connect to root
+
+
+3. deleteLeft(): e
+
+- consider one temporary variable t 
+- if root is null then list is empty
+- copy the root node
+- root=root.next -> conect next with root
+- we are deleteing by creating local variable -> t 
+- we just displaying what is deleted t.data
+
+
+
+4. deleteRight() : e
+
+- declare t2 as anchor means as reference
+
+5. printList():
+6. searchList(key):
+
+ADV :
+
+1. insertAt(pos,data)
+2. deleteKey(key): search and delete 
