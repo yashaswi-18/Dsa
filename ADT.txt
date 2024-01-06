@@ -7,7 +7,9 @@ Types of data structure :
 1.Linear vs non linear
 
 2.Static vs Dynamic 
-Static 	                                                                Dynamic
+
+                  Static 	                                            Dynamic
+
 1.	Memory allocated on compile time 	                1.memory allocated on runtime
 2.	fixed : once allocated can not be changed
  	                                                        2.on demand : can increase or decrease as per need 
@@ -315,6 +317,7 @@ Q.Implement sliding window on queue that returns max in window for each slides e
 LINKED LIST
 
 1.Linear linked list
+-unidirectional in nature 
   root
 |  |   | -> |  |  |  -> |  |   |
 
@@ -327,7 +330,9 @@ LINKED LIST
 
 
 3.Doubly linked list
-
+drawback : - unidirectional 
+Solution :
+-i has previous last i.e left and right
 
 
 4. Circular doubly linked list 
@@ -421,3 +426,371 @@ ADV :
 
 1. insertAt(pos,data)
 2. deleteKey(key): search and delete 
+
+Circular Linked List
+
+- root and last 
+-first thing root and last is null
+-root refer itself
+
+
+
+
+
+Dynamic Stack:
+ADT:
+createStack()
+push(e) :insertLeft(e)
+pop() : e :deleteLeft
+peek() : e :printLeft
+print() :LIFO tos till null
+
+linear linked list la dyanamic madhe convert kely 
+- root repplace with tos
+-
+
+
+can you implement stack left or right side ?
+
+- it is possible usng left 
+- if we moving towards right previous nodes link will be disconnected , printing in lifo will not be possible 
+
+
+
+Queue using linked list
+
+Enqueue() : insertRight
+Dequeue() : deleteLeft
+print() : left to right
+
+
+implement queue in another way means insertleft , deleteright - it is possible but its printing not in fifo manner
+
+
+ ****************** Linked list ****************************
+insert at 
+
+
+
+
+Create a menu driven CRUD operation program for employee management using linear linked list
+
+Linked list maintains data:
+employee_id , Name , Gender , Salary
+
+Menu :
+1.insertRight: - register a new employee(goes at of end of list)
+2.search an employee on his\her number
+3.Update old record on employee id
+ 
+  ->update -> ask for id ->if found   1.name  2.gender 3.salary
+
+4.Delete record on id 
+
+**********************************************************************************************************************************************************************
+
+
+Tree
+
+- at most , at least - only one root 
+-if you looking at situation which has multiple roots called data forest tree
+-leaf nodes 
+-branch nodes
+
+---------------------------------------------- 
+
+Binary tree ( 0 and 1 )
+
+- a node can at most have two child nodes.
+- at most 0 , 1 , 2 nodes
+
+-----------------------------------------
+
+Terms
+1.Depth 
+2.Height 
+3.Subtree 
+4.Ancestor ( root ) 
+5.Leaf node - end of the tree 
+5.Root node
+
+
+depth and height
+
+-depth and height of tree is equal but depth and height of node may not be equal
+-length of longest running branch
+
+---------------------------------------
+
+Types of Binary tree
+
+1 .  Complete 
+-All leaf nodes are at same depth
+
+2.Nearly complete
+-All except 1 is at depth +-1
+-ek koi age reh jaye or ek piche reh jaye
+
+3.Strict
+-each node can have either two child or zero
+
+4.Binary search tree
+-Child to left < Parent 
+-Parent <= right child
+
+left child < Parent < right child 
+
+-------------------------------------------------
+
+Construct binary search tree
+10,2,7,1,20,15,11,22,28
+
+-------------------------------------------------
+
+
+
+* ************Tree traversal****************** *
+traversal - order of visiting each node
+
+-------------------
+
+       (P)
+        + 
+      /  \
+ (L) a    b (R)
+ 
+------------------ 
+
+ +   a   b  Preorder
+(P) (L) (R)
+
+
+ a   +   b Inorder
+(L) (P) (R) 
+
+ a   b   +   Postorder
+(L) (R) (P)
+
+
+p: print
+L: go to left
+R : go to right
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Threaded Binary Tree
+
+- Enhanced form of tree for simple inorder traversal
+- Why inorder ? because as inorder data is sequential/serial access of data 
+- need ? today data is stored on tree is scattered manner, one may need to access it in order . Example OverTheTop:Webseries
+
+
+1.one handed : 
+-either left/right to refer next
+-next : inorder next is refer
+
+
+2.two handed
+- L:previous R:next :- traversal becomes easy
+
+
+-------------------------------------------------------------------
+
+Applications of tree
+1.Storage
+2.Searching and sorting large scale data
+3.Autocorrect Auto Complete(dictionary tree used)
+4.Expression tree for conversion and evaluation
+5.In GIS System(satellite map zoom in-out)
+
+
+
+
+---------------------------------------------------------------------
+
+Balance Factor = height of left subtree - height of right subtree
+-balance factor : it reduces the height and depth of the tree
+
+-Every node has it 
+balance tree can be accessed faster
+
+AVL tree
+
+-self balancing tree
+- nearly balance  (balance factor  +1  , 0 , -1 )
+- binary tree
+
+- If balance factor +1 < | -1 >(out of +1 & -1 range)  unbalance then we rotate on basis of where and who caused unbalance
+
+---------------------------------------------------------
+
+Four rotation to  balance out
+
+1.Left of Left - niche se upper follow hota hai
+
+2.Right of Right
+
+3.Right to Left
+
+4.Left of Right
+
+----------------------------------------------------------------------------
+
+AVL
+
+- insertion one at a time in BST manner
+- After every insertion calculate Balance factor for all node bottom  to top
+- stop at 1st location where balance factor goes beyond +1 to -1
+- search 3 node path from unbalanced to newly inserted that caused unbalance.
+- check case and apply rotation
+
+
+---------------------------------------------------------------------------
+
+Multiway Search Tree
+
+- In a node one can store multiple elements
+- Data at a node is sorted
+- has order M that decides minimum and maximum split
+ that is  1.min(M/2)
+          2.max(M-1)
+          3.Split(M)
+- M must be odd 
+ex. M:3 
+min elements at a node is M/2 = 3/2 = 1
+max elements at a node is M-1= 3-1 = 2
+split  elemets at a node M = 3 mid split
+
+- Insertion only in leaf nodes
+- All leaf nodes are at same depth
+- On split child will create parents and parents will create grandparents
+
+Q . What is the problem in B tree ?
+
+ - drawback - data is scattered in n nodes and for sequentiaal access one must go through all nodes.
+
+ex 1 to 7 access krna hai you need to go 1 to 2 to 3 to 4 to 5 to 6 to 7 ....
+
+
+*** Btree diya rehta hai b plus banane ko kehte hai **********
+
+--------------------------------------------------------------------------------
+
+
+ B + tree
+
+- it is enhanced form of b tree for sequential access
+- All things from B tree
+- But in this all data kept only in leaf nodes on split only reference is given to higher nodes and all leaf nodes are interconnected
+
+-----------------------------------------
+
+Deletion of a node from binary tree :
+
+case 1: leaf 
+
+sol : cut from parent and delete
+ 
+case 2 : parent with single child
+
+sol : connect grand parent to grand child
+
+case 3 : parent with complete left and right subtee
+
+sol : inorder next takes the position  
+
+
+*****************************************************************************************************************
+
+Representation  of Tree
+
+1.Static (array)
+
+- root : oth position
+- i'th  --> 2i+1(left child)
+            2i+2(right child)
++ve : simple fast
+-ve : static so can not grow or shrink , not memory efficient
+
+2.Dyanamic (DLL)
+- uses DLL node to create tree
++ve : Dyanamic and can grow/shrink as per need , memory efficient
+-ve : due to one directional reference can only go from top to bottom , hence recursion is to use 
+ 
+3.Dyanamic (Tree node)
+
+- Uses special tree node that has 3 way connectivity
+
++ve : dyanamic can grow/shrink as per need , has both reference top to bottom and bottom to top
+-ve : too complex to implement
+
+******************************************************************************************************************
+
+-----------------------------------------------------------
+Tree Implementation using DLL(Doubly linked list) approch
+-----------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
