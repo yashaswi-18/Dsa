@@ -733,6 +733,197 @@ Tree Implementation using DLL(Doubly linked list) approch
 
 
 
+GRAPH
+
+-------------------------------------------------
+
+- Every tree is  graph but
+- Every graph is not a tree -->tree with cycle is a graph 
+
+- Graph without cycle is a tree
+
+Graph : 
+    Collection of nodes / vertices that are interconnected via edges/links
+
+G( V , E )  -> V = set of vertices
+            -> E = set of edges 
+ *********************************************************************************************************************
+
+Types of Graph
+
+1.Unweighted -> basic connection
+2.Weighted -> Any unit that can be used to take decision , common unit -> cost , delay , distance , bandwidth
+           -> shows connection with cost
+3.Undirected -> Symmetric
+4.Directed  -> Asymmetric 
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Applications
+
+1. In routing
+2. In biometric eg .retina scan , fingerprint scan ( used for security) - graph
+3. Searching in graph - DFS , BFS , Blind search , least cost search
+4. Handling flow problem  -> how to manage
+5. Topological sort
+   -> Kind of graph in which each ith state must be reached only after i-1'th state
+   -> Manufacturing / production , cooking 
+   -> We cannot skip any step eg our eduacation system you -> born -> kg -> ssc -> hsc -> BE -> mE -> PHD 
+                                                                             Diploma             MS
+
+6. Google Maps uses graphs for building transporatation systems , wher intersection of two roads are considered to be a vertex and the road connecting two vertices is considered to be an edge , thus their navigation system is based on the algorithm to calculate the shortest path between two vertices .
+
+7. In Facebook , users are consisdered to be the vertices and if they are friends then tere is an edge running between them .Facebooks friend suggestion algorithm uses grapH theory . FACEBOOK IS AN EXAMPLE OF UNDIRECTED GRAPH.
+
+8.In OS , we come across the resourses alllocation graph where each process and resources to be vertices.used in resource allocation and deadlock
+--------------------------------------------------------------------------------------------------------------------
+
+Terminologies:
+
+
+1.Adjacent Nodes : Two nodes are adjacent if they are connected by an edge
+
+2.Path : A sequence of vertices that connect two nodes in a grapgh
+
+3.A simple path is a path in which all vertices except possibly in the first and last are different .
+
+4.Complete graph : A graph in which every vertex is directly connected to every other vertex eg ,mesh architecture is complete graph
+
+5.A cycle is a simple path with the same start and end vertex.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+DEGREE OF NODE
+
+- number of elements that are connected
+- The degree of vertex / is the no. of ehges incident on vertex
+
+-Direcected grph degree is of two types indegree and outdegree
+1. indegree - > no .of incoming edges
+2. outdegree -> no of outgoing edges
+
+-*--------------------------------------------------------------------------------------------------------------------------
+
+CELEBRATIY NODE :
+
+- Maximum incoming (v-1) and outgoing (0) zero or nearly none 
+
+- In oder to find most popular additionof column is used.
+
+indegree (incoming) = addition of column
+
+------------------------------------------------------------------------------------------------------------------
+
+REPRESENTATION OF GRAPH to computer is
+
+1.Adjacentry natrix
+- static 
+- easy
+- to fill if unweighted  1 / 0
+-to fill weighted W / infinity
+
+- 16 is considered to be infinity with reference to computer network.
+
+2.Adjacency List
+
+- array of linked list
+- each node is an edge
+- can grow or sharing with need
+- storage of ( v+e )
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+DIJKSTR'S aLGORITHM / SHORTEST PATH FIRST(SPF) /SINGLE SOURCE SPF
+
+lOGIC :
+
+1. initially all marked as { - (from) , infinity (cost) }
+
+2. source is { - , 0 } to start
+
+Steps :
+
+1.select minimum unvisited mark it visited ,forwards its weight to unvisited neighbours update weight iff new weight is smalller than old
+
+
+2.end:When all are visited /or/destination reached
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+MINIMUM SPANNING TREE (MST)
+
+-Application of graph
+
+input : graph
+output : tree
+
+Process : remove cycles and keep only minimum cost edges
+
+MST used in roads , transport , rail , piping  , wiring , broadcasting (no cycles)
+
+*****************************************************************************
+
+Algorithm in MST
+ 
+How many edges in MST (v-1)
+MST cost means addition of tree edges weight 
+
+1.Prim's : works on node/vertices , has more control 
+- exploring the chepest path
+    step 1 : start from given source ass it to sol tree
+    step 2 : while all vertices are not in sol tree do
+                1. Select the cheapest edge between vertex of sol tree and non-sol vertex iff not forming cycle 
+
+----------------------------------------------------------------------------------------------------------------------------
+
+2.Kruskal's : works on edges / has less control over solution ( any edge from anyside as per need gets connected results in disconnected graph inbetween)
+      step 1 : create sorted list of all egdges on basis of weight
+      step 2 : till all nodes are not in solution do 
+                    1.extract an edge from sorted list
+                    2.check if not forming cycle then accept in sol else reject and go to step
+
+*** BOTH WILL GIVE SAME RESULT ***** -> MST cost
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Graph Searching
+- Both Blind search
+
+1.BFS 
+
+-> Queue 
+-> Horizontal search
+
+Step 1 :Start by putting source on QUEUE and marking it visited
+
+step 2 :Search for All UNVISITED neighbours of element at queue front , mark them visited and put them on queue
+
+step 3 : remove element at queue front
+
+step 4: continue 2,3 till queue is not empty
+
+------------------------------------------------------------------------------------------------------------------------------
+
+2.DFS
+
+-> Stack
+-> Vertical search
+
+step 1 : accept source , mark it visited and push it on STACK
+
+step 2 : search any ONE UNVISITED neighbour of element at top of stack , mark it visited push it on stack
+
+step 3 : if no unvisited element found then pop element from stack at go step 2
+
+step 4 : continue step 2,3 till stack is not empty 
+
+
+******************************************************************************************************************************************************
+
+How to find adjacency path using matrix ?
+//todo
+
+
+
 
 
 
