@@ -929,6 +929,331 @@ How to find adjacency path using matrix ?
 
 
 
+Algorithms
+
+finite set of steps
+-set of finite steps followed will solve given given problem in finite step and finite time .
+
+------------------------------------------------------------------------------------------------
+
+5 pillars of algorithm
+
+1.Input - data/ dataset / problem set
+2.Output - result(true) / response (fail) 
+3.Finiteness - fixed steps and time
+4.Definiteness - each step should be clearly defined to implement 
+5.Effectiveness - Each step should either take us closer to solution or solve the problem
+
+// Most important pillar is Input and Output  
+
+
+Analysis 
+
+why ?
+- So one can predict time and space complexity and then select the one .
+
+When ? 
+1.Priori
+- Done before implementation
+- Using pen paper
+
+2.Posteriori ( 1. rechecked what priori analysis give us 2. what improvement needed )
+- Done after implementation
+- Using software by professionals
+
+on What ?
+1. Best case  - 0% to 1-2% work }    efficient and
+2. Worst case - 100% to 200%    }     accurate answer
+3. Average case - 50-60% work ->if you need speed / quick answer
+
+What we get ?
+
+1.Time complexity
+
+T(P) = t(compile)(P) + t (execute)(P)
+           1                n
+
+- Times which we giving is in steps 
+
+Comments ----> 0
+Operation ---> 1
+Loop ---> n+k   --> n+
+
+2.Space complexity
+
+S(P) = s(variables & constants) (P) + S (instructions) (P)
+
+
+
+Aymptotic Notation
+
+- A way of recording complexity using mathematical formula / unit of recording complexity
+
+- Aymptotic Notation  is used to describe the running time of an algorithm - how much time an algorithm with a given inmput n
+
+- Algorithm Common Runtimes
+
+Fastest to slowest are
+1 . Constant      --> O(1)
+2 . Logarithmic   --> O(log n)
+3 . Linear        --> O(n)
+4 . Polynomial    --> O(n^2)
+5 . Exponential   --> O(2^n)
+6 . Factorial     --> O(n!)
+
+           Symbol            used
+
+Big Oh -->   O          --> only worst case    --- > O(n²).                        --> f(n) <= c.g(n)   --> c is constant
+                       --> max used , simple but less accurate , fast
+
+Theta -->   0 (theta)  --> average of ( worst and best)    --> Θ(n×p)             --> c1.g(n) < = f(n) < = c2.g(n)
+                       --> slow but high accuracy
+
+Omega -->   Ω           --> best case only                                        --> f(n) >= c.g(n) 
+                       --> not used
+                  
+
+
+      f(n)                          g(n)
+
+- input rate                   - growth rate       
+
+- no rate                     - amount of steps
+
+
+
+Big Oh ' O ' Notation 
+
+
+Rules
+1.Constant has no value
+ 
+O(100n) --> O(n)
+
+2.In addition use max(worst only)
+
+O(n) + O(n^3) + O(n^2) --> O(n^3)
+
+3.In nesting multiply and then use addition rule
+
+O(n).O(n+3)
+O(n^2) + O(3n)  -->o(n^2) + (n)   --> O(n^2)
+             
+-------------------------------------------------------------------------------------------
+
+
+First performed sorting and after that searching will takes place 
+
+---------------------------------------------------------------------------------
+1.Sorting is first and faster
+
+------------------------------------------------------------------------------------
+
+Sarching
+
+- result is i'th index(found) response is -1 (not found)
+
+--------------------------------------------------------------------------------
+
+1.Sequential search / Serach search / linear search
+
+Why linear search uses unsorted array ?
+
+- Only search that can work on unsorted data 
+- Simplest form of search
+
+ step 1 :  linear Search(array , key): i/-1
+ step 2 :  Start from 0th and search till last element 
+                  if found stop and return location
+                       at end return -1
+int LinearSearch(int a[] , int key)
+{
+    for(int i=0;i<a.length;i++)
+    {
+          if(key == a[i])
+               return i;  //found
+    }
+    return -1 ;   // not found
+
+}
+
+-----------------------------------------------------------------------------------------
+
+2.Binary search
+
+How would ypu improve  the binary search
+
+- first checking extreme boundaries and then starting 
+
+ 
+- Can only work with sorted data
+- Uses divide and conquer tech
+
+-In search array must be sorted .
+
+step 1 : Calculate mid =( start + end )/2;
+step 2 : if key == a[mid] then say found at mid
+         else
+         {
+            if key is lesser then a[mid] go to left half
+            else goto tight half
+         }
+step 3 : if start and end crosses each other then 
+         not found(-1) 
+
+-***********************************************************************************-
+
+Sorting Process
+
+- it is a placing / arranging data in some order.
+- Default(Ascending) min to max
+- Descending max to min
+- done for faster search as arranged data can be searched quickly
+
+---------------------------------------------------------------------------------------------------
+
+Why insertion sort is ccalled inseartion sort ?
+Why n-1 in bubble sort?
+
+----------------------------------------------------------------------------------------------
+Bubble Sort
+
+-heavy to lighsest
+- elements in bubbled on the top in each pass needs n-1 passes
+
+void BubbleSort(int a[])
+{
+   int i , j , t;
+   for(i=0;i<a.length-1;i++)  // gave only passes
+   {
+        for(j=0 ;j<a.length-1;j++) // j stops at second last 
+        {
+             if(a[j]>a[j+1])
+             {
+                t = a[j];
+                a[j] = a[j+1];
+                a[j+1] = t;
+              }
+        }
+   }
+}
+
+
+----------------------------------------------------------------------------------------------------------------
+
+Selection Sort
+
+-  select the minimum search
+-  lighestest to heavy
+
+- In each ith pass selects smallest element and place it at ith location.
+- min to max in sorting ( 0 to n -1 )
+- n-1 passes at most
+- search for min in each pass
+ .
+
+
+void selectionSort( int a[] )
+{
+   int i , j , min ,pos ;
+   for(int i = 0 ; i<a.length-1;i++)
+   {
+        min=a[i];
+        pos = i ;
+        for(int j = i+1 ; j<a.length;j++)
+        {
+            if(a[j]<min)
+            {
+                min = a[j];
+                pos = j ;
+            }
+         }
+         a[pos]=a[i];
+         a[i] = min;
+    }
+}   
+-----------------------------------------------------------------------------------------------------------------------
+
+Insertion Sort 
+- Array in div in 2 parts (sorted/unsorted)
+- in each pass an element from unsorted is taken and inserted in sorted part at right location 
+
+void insertionSort((int a[])
+{
+   int i , j , new_element;
+   for(i=0;i<a.length-1;i++)
+   {
+       new_element = a[i+1];
+       j=i+1;
+       while(j>0 && a[j-1]>new_element)
+       {
+            a[j] = a[j-1];
+            j--;
+       }
+        a[j] = new_element;
+    }
+}
+ 
+-------------------------------------------------------------------------------------------------------------------------
+
+Quick sort
+
+- works on pivot (ref position)
+- pivot : start* , end , miid
+
+- we take pivot and rearange array such that elements before pivot < pivot < after pivot
+- fastest
+                   -  aage vale pivot se  chote hone chahiye and piche vale pivot se bade hone chahiye
+
+void quickSort(int a[] , int start , int end )
+{
+     int i = start ;
+     int j = end ;
+     int pivot = start;
+     while(i<j)
+	{
+		while(a[i]<a[pivot])
+		    i++;
+		while(a[j]>a[pivot])
+			j--;
+		if(i<j)
+		{
+			int t=a[i];
+			a[i]=a[j];
+			a[j]=t;
+		}
+	}
+	if(i<end)
+		quickSort(a,i+1,end);
+	if(j>start)
+		quickSort(a,start,j-1);
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
