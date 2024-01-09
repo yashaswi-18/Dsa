@@ -1230,6 +1230,139 @@ void quickSort(int a[] , int start , int end )
     
 }
 
+Merge Sort
+
+- divide and conquer - it is special algorithm problem size is larger than the process
+- Start with 1 array of n elements , divide from middle again and again till we reach to n arrays of 1 element then we start merging them in order
+- Known for it parallel implementation can do large scale data sorting.(when your machine support multithreading or multitasking)
+O(nlogn)
+eg real life pizza you can eat by cutting it in separte pieces or second one engineering 4 years explain well 
+
+void mergeSort(int a[] , int start , int end)
+{
+	if(start<end)
+	{
+	       int mid=(start+end)/2;
+		mergeSort(a,start,mid);
+		mergeSort(a,mid+1,end);
+		merger(a,start,mid,end);
+	}
+}     
+void merger(int a[],int start , int mid , int end)
+{
+	int i,j,temp[],tindex;
+	temp=new int[a.length];
+	i=start;
+	j=mid+1;
+	tindex=start;
+	while(i<=mid && j<=end)
+	{
+		if(a[i]<a[j])
+			temp[tindex++]=a[i++];
+		else 
+			temp[tindex++]=a[j++];
+	}
+	while(i<=mid)
+		temp[tindex++]=a[i++];
+	while(j<=end)
+		temp[tindex++]=a[j++];
+	for(i=start;i<=end;i++)
+	{
+		a[i]=temp[i];
+	}
+
+
+}
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Heap Sort
+
+- uses idea of heapify tree
+- loosely based on heapify processwhich is tree based sorting
+- Heapify : a tree that can be MAX heap / MIN heap 
+                
+                MAX heap : parent have greater value than child parent > child
+                MIN heap : parent have lesser value than child parent < child
+
+- Heapify uses Array implementation of tree ( 0 th root , i'th 2i+1 , 2i+2 child)
+
+- go bottom to top , left to right and check max / min heap if needed swap
+- at end swap last and root
+- cut last 
+- restart with leftover to create tree
+
+- j is a mid level node from where child to parent and parent to grand parent starts checking 
+     pc   : child
+     pc/2 : parent
+ 
+     if a[pc/2] < a[pc]
+        parent < child 
+     then
+        swap
+ 
+
+void heapSort(int a[] )
+{
+    boolean done;
+    for(int i=a.length-1;i>-1;i--)
+    {
+	for(int j=0;j<=i;j++)
+	{
+		int pc = j;
+		done=false;
+		while (pc > 0 && pc/2>=0 && done!=true)
+		{
+			if(a[pc]>a[pc/2])
+			{
+				int t = a[pc];
+				a[pc] = a[pc/2];
+				a[pc/2] = t;
+				pc=pc/2;//move to parent
+			}
+			else
+			{
+				done = true;
+			}
+		}
+		int t = a[0];
+		a[0] = a[i];
+		a[i] = t;
+       }
+   }
+}
+	
+---------------------------------------------------------------------------------
+
+Hashing 
+
+eg . QR - finding anything in one pass , barcode ( credit , debit card)
+
+- Hashing is a process of finding needed data in a pass 
+
+- Components of hashing 
+
+data  -----> hash function  ------------> index i
+     data i                   index i     Data i
+
+eg.
+-- when you create a contact -> save -> gave a hash code -> in memory wo contact ready hota hai ->when you call up then u get clip ( number screen dikhta hai ) then it will gave number to hash function and create hash value  --> calling 
+
+
+IMPORTANCE in hashing
+
+1.Hash function 
+  - should be fast
+  - should spread
+  - no collision
+  - easy to code
+
+2.Hash Table 
+  - Saves the data as given index and hence important with respect to speed of access and size
+
+
+
+
 
 
 
