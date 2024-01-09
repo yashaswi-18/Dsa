@@ -105,6 +105,23 @@ public class Tree_Example {
 		}
 	
 	}
+	int getLeafCount(Dnode r) 
+
+    {
+
+        if (r == null)
+
+            return 0;
+
+        if (r.left == null && r.right == null)
+
+            return 1;
+
+        else
+
+            return getLeafCount(r.left) + getLeafCount(r.right);
+
+    }
 	public static void main(String [] args)
 	{
 		Tree_Example t = new Tree_Example();
@@ -130,5 +147,7 @@ public class Tree_Example {
 		t.postorder(t.root);
 		System.out.println("Height is :"+(t.getHeight(t.root)-1));
 		System.out.println("IsBalanced :"+t.isBalance(t.root));
+		System.out.println("Lef node count is :"+t.getLeafCount(t.root));
+
 	}
 }
