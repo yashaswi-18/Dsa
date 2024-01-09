@@ -1362,6 +1362,132 @@ IMPORTANCE in hashing
 
 
 
+Hashing 
+
+eg . QR - finding anything in one pass , barcode ( credit , debit card)
+
+- Hashing is a process of finding needed data in a pass 
+
+- Components of hashing 
+
+data  -----> hash function  ------------> index i
+     data i                   index i     Data i
+
+eg.
+-- when you create a contact -> save -> gave a hash code -> in memory wo contact ready hota hai ->when you call up then u get clip ( number screen dikhta hai ) then it will gave number to hash function and create hash value  --> calling 
+
+
+IMPORTANCE in hashing
+
+1.Hash function 
+  - should be fast
+  - should spread
+  - no collision
+  - easy to code
+
+   1. Direct Hash :
+
+       x --> H(x) --> X index
+       data becomes index itself
+       ex.
+       student 1 has roll no 1
+               2             2
+
+   2. Subtraction Hash :
+
+      c : constant 
+      ex.AMITY -- > 202301112
+                    YYYYBBRRR
+                  C=202301000
+
+      R:202301012 --> H(202301012) = 202301012 - 202301000
+                  --> 012 data/index of data
+
+   3. Digit Extraction : 
+
+     - Some part of data is used as index
+     ex.Bank and Bank account (last 4 digit) 
+
+   4. mod division technique
+
+      x : H(x): x%n : n can be prime number/size of hash table
+
+     +ve : maximum used directly/indirectly
+     -ve :maximum collision
+           121 % 10 = 1 , 331 % 10 = 1
+
+   5. mod with random numbers
+     
+      x: H(x) : (a.x+b)%n
+                 a,b : random numbers
+
+   6. digit folding : (digest) 
+    
+      -break data in parts and use sum of parts as index :9821+6011+6300 = INDEX
+      
+ 
+   7. mid square method
+
+      - x : H(x) : mid of X^2
+       H(11) : 121 index 2
+
+       H(7)  : 049 index 4
+
+
+2.Hash Table 
+  - Saves the data as given index and hence important with respect to speed of access and size
+
+
+---------------------------------------------------------------------------------------------------------
+
+COLLISION
+
+- when more than one data given at same location it is collision
+- it reduces performance of system , data needs to be search before commneting yes or no
+
+1. Double/tripples hashing:TTH hash 
+    use
+       - torant file system
+       - Mobile system
+
+2. Probing
+
+     1.Linear Probing
+
+          - i'th is taken try linear search till 1st available 
+          i , i+1 , i+2 , i+3 , i+4 ..... i+k
+
+     2.Quadratic Probing
+
+          - i'th is taken try i+2^n  till 1st available
+          i , i+1 , i+2 , i+4 , i+8 , i+16 ... i+2^n
+          - moves away from densed packed data 
+
+   -ve : clustering
+         - Both linear and quadratic suffers fron clustering means sequentials search before one can comment found or not.
+  
+3. Bucketing : 2d hash table
+ - we use n x m structure simple but costs memory 
+ - max store 10 x 10 size 10 row 100 column
+
+4. Chaining : (Linked List)
+ 
+ - It's a dyanamic system and on demand
+ 
+ -ve : too complex to use/implement    
+
+
+
+ todo
+
+- revise searching and sorting quick sort , heap sort and merge sort
+
+
+
+
+
+
+
 
 
 
