@@ -1486,6 +1486,146 @@ COLLISION
 
 
 
+Types of algorithms
+
+--------------------------------------------------------------------------------------------
+
+1. Divide and conquer(D-n-c)
+
+   - used when size of problem is larger than what can be processed
+   - Multitasking / multithreading
+
+
+   - big box -> divide into 2 box -> divide into 4 box -> convert 2 box ->now make one box
+   <--------------------- Divide ----------------------><--------Conquer ----------------->
+
+    such diagram is divide and conquer
+    
+     a. Merge sort
+     b. Binary search
+
+------------------------------------------------------------------------------------------------
+
+2.Greedy algorithm
+- you know eveything from first to last in programming question
+ eg . Street shopping 
+  - Talks about optimization
+  - Optimization
+       1.Minimization-Cost
+       2.Maximization-Profit
+
+  - rule , advantage , profit , cpst - greedy
+
+  ********* KNAPSACK algoritm -- > chor and mall 10kg gehu *********
+
+   - User is given a sack with capacity W and n objects each with own weight wi and profit pi
+
+   Goal : Maximum profit by filling sack with best objects 
+
+   Best object is one with max profit and minimum weight
+
+Algorithm - maximization
+
+Step 1 : sort all objects in p/w(profit to weight ratio) ration in descending order (max to min)
+
+step 2 : Till sack is not full or objects are not over 
+         do
+              2a. remove best object from list put  it in sack update sack capacity and profit
+
+
+eg.mst cost , dijkstra algo , shortest path greedy algo
+
+-----------------------------------------------------------------------------------------------------------
+
+3. Dynamic programming
+
+   - Break problem in states , evaluate each state with formula recursively , select best in each step so finally get optimizd answer
+   eg . all source shortest path(Floyd warshal's)
+
+   - There exists a shortest path between i , j going via k
+
+cost[i,j]>cost[i,k]+cost[k,j]
+
+
+
+Begin 
+for k:=0 to n , do
+   for i := 0 to n , do 
+       for j :=0 to n , do 
+            if cost[i,k] + cost [k ,j] < cost[i,j] then
+               cost[i,j] : = cost[i,k] + cost[k , j]
+                10               3     +        2
+
+           done
+       done
+   done
+   display the current cost matrix
+End
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+4.BackTracking
+- when in your problem contain stuck words usee backtracking
+- Only solution needed.(May/May not be optimal)
+eg.n-queens problem - 4x4 problem is the smallest problem --> it will be grows on 2^n
+
+eg.dfs is ex. of backtracking 
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+5. Branch n Bound 
+        - Branch --> option
+        - Bound --> evaluation
+
+  - All solutions
+  - State space tree(decision tree) --> in computer chess winnings 
+  - Ex. travelling salesman , barbequeue nation
+           - One must cycle all cities exactly once before coming back home in minimum cost
+
+6.Stochastic algorithm 
+  - stochastic refers to a  variable process where the outcome involves some randomness and has some uncertainty.
+  - It is mathematical term and is closely related to "randomness" and " probbabilistic" and can br contarsted to the idea of "deterministic"
+
+ - May produce better results
+
+-----------------------------------------------------------------------------------------------------------------------------------
+Interview
+
+trading prommaming amdocs
+
+OPTIMIZATION algorithm
+1.greedy
+2.dyanamic
+
+- comparison dyanamic and greedy
+- compare branch n bound and dyanamic
+- compare greedy and branch n bound  ---> both gives limited solution and optimum solution
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Sorting linked list
+
+for(Node i = root ; i.next!=null;i=i.next)
+{   
+    for((Node j = root ; j.next != null;j=j.next)
+     {
+          if(j.data > (j.next).data)
+          {
+                int temp = j.data;
+                j.data = (j.next).data;
+                (j.next).data = temp;
+          }
+     }
+}
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Merging two sorted linked list
+
+
+
 
 
 
